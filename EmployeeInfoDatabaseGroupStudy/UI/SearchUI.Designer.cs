@@ -129,6 +129,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "SearchUI";
             this.Text = "SearchUI";
+            this.Load += new System.EventHandler(this.SearchUI_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

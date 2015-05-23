@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeInfoDatabaseGroupStudy.Model
 {
-    class Designation
+  public  class Designation
     {
         public int Id { set; get; }
         public string Code { set; get; }

@@ -89,6 +89,7 @@
             this.designationComboBox.Name = "designationComboBox";
             this.designationComboBox.Size = new System.Drawing.Size(170, 21);
             this.designationComboBox.TabIndex = 4;
+          //  this.designationComboBox.SelectedIndexChanged += new System.EventHandler(this.designationComboBox_SelectedIndexChanged);
             // 
             // addressTextBox
             // 
@@ -156,7 +157,6 @@
             this.Controls.Add(this.employeeGroupBox);
             this.Name = "EmployeeInfoUI";
             this.Text = "EmployeeInfoUI";
-          //  this.Load += new System.EventHandler(this.EmployeeInfoUI_Load);
             this.employeeGroupBox.ResumeLayout(false);
             this.employeeGroupBox.PerformLayout();
             this.ResumeLayout(false);

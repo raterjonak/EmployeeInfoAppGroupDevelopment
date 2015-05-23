@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace EmployeeInfoDatabaseGroupStudy.Model
 {
-    class Employee
+    public class Employee
     {
         public int Id { set; get; }
         public string Name { set; get; }
         public string Email { set; get; }
         public string Address { set; get; }
         public Designation ADesignation { set; get; }
-        //testing for roni.
-        //Second test.
+       
     }
 }
