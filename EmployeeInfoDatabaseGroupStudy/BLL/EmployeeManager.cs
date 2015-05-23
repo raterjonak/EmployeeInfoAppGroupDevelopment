@@ -8,5 +8,6 @@ namespace EmployeeInfoDatabaseGroupStudy.BLL
 {
     class EmployeeManager
     {
+        //test
     }
 }
