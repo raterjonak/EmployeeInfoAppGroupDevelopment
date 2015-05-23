@@ -13,5 +13,6 @@ namespace EmployeeInfoDatabaseGroupStudy.Model
         public string Email { set; get; }
         public string Address { set; get; }
         public Designation ADesignation { set; get; }
+        //testing for roni.
     }
 }
