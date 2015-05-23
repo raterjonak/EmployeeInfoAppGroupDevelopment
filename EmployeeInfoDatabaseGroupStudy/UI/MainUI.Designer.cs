@@ -29,13 +29,15 @@
         private void InitializeComponent()
         {
             this.employeeGroupBox = new System.Windows.Forms.GroupBox();
-            this.addInfoButton = new System.Windows.Forms.Button();
             this.searchAndEditButton = new System.Windows.Forms.Button();
+            this.addInfoButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.employeeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // employeeGroupBox
             // 
+            this.employeeGroupBox.Controls.Add(this.button1);
             this.employeeGroupBox.Controls.Add(this.searchAndEditButton);
             this.employeeGroupBox.Controls.Add(this.addInfoButton);
             this.employeeGroupBox.Location = new System.Drawing.Point(50, 67);
@@ -44,6 +46,16 @@
             this.employeeGroupBox.TabIndex = 0;
             this.employeeGroupBox.TabStop = false;
             this.employeeGroupBox.Text = "Employee Info";
+            // 
+            // searchAndEditButton
+            // 
+            this.searchAndEditButton.Location = new System.Drawing.Point(152, 73);
+            this.searchAndEditButton.Name = "searchAndEditButton";
+            this.searchAndEditButton.Size = new System.Drawing.Size(75, 23);
+            this.searchAndEditButton.TabIndex = 1;
+            this.searchAndEditButton.Text = "Search/Edit";
+            this.searchAndEditButton.UseVisualStyleBackColor = true;
+            this.searchAndEditButton.Click += new System.EventHandler(this.searchAndEditButton_Click);
             // 
             // addInfoButton
             // 
@@ -55,15 +67,14 @@
             this.addInfoButton.UseVisualStyleBackColor = true;
             this.addInfoButton.Click += new System.EventHandler(this.addInfoButton_Click);
             // 
-            // searchAndEditButton
+            // button1
             // 
-            this.searchAndEditButton.Location = new System.Drawing.Point(152, 73);
-            this.searchAndEditButton.Name = "searchAndEditButton";
-            this.searchAndEditButton.Size = new System.Drawing.Size(75, 23);
-            this.searchAndEditButton.TabIndex = 1;
-            this.searchAndEditButton.Text = "Search/Edit";
-            this.searchAndEditButton.UseVisualStyleBackColor = true;
-            this.searchAndEditButton.Click += new System.EventHandler(this.searchAndEditButton_Click);
+            this.button1.Location = new System.Drawing.Point(89, 29);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainUI
             // 
@@ -84,6 +95,7 @@
         private System.Windows.Forms.GroupBox employeeGroupBox;
         private System.Windows.Forms.Button searchAndEditButton;
         private System.Windows.Forms.Button addInfoButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
