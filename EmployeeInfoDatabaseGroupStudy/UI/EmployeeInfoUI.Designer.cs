@@ -60,7 +60,6 @@
             this.employeeGroupBox.TabIndex = 2;
             this.employeeGroupBox.TabStop = false;
             this.employeeGroupBox.Text = "Employee Information";
-            this.employeeGroupBox.Enter += new System.EventHandler(this.employeeGroupBox_Enter);
             // 
             // saveEmployeeButton
             // 
@@ -156,7 +155,7 @@
             this.Controls.Add(this.employeeGroupBox);
             this.Name = "EmployeeInfoUI";
             this.Text = "EmployeeInfoUI";
-          //  this.Load += new System.EventHandler(this.EmployeeInfoUI_Load);
+            this.Load += new System.EventHandler(this.EmployeeInfoUI_Load_1);
             this.employeeGroupBox.ResumeLayout(false);
             this.employeeGroupBox.PerformLayout();
             this.ResumeLayout(false);

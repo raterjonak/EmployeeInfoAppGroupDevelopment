@@ -14,16 +14,47 @@ namespace EmployeeInfoDatabaseGroupStudy.BLL
         DesignationGateway gateway = new DesignationGateway();
         public string Save(Designation aDesignation)
         {
-            if (gateway.Save(aDesignation) >= 0)
+            if (aDesignation.Code == string.Empty)
             {
-                return "Saved successfully";
+               return "Designation Code is missing";
             }
+
+            else if (aDesignation.Title == string.Empty)
+            {
+                return " Designation Title is missing";
+            }
+
+            else if (gateway.IsDesignationCode(aDesignation.Code))
+            {
+                return "This Code Already Exists, Try Again!!";
+            }
+
+
+            else if (gateway.IsDesignationTitle(aDesignation.Title))
+            {
+                return "This Title Already Exists, Try Again!!";
+
+            }
+             
+
+
             else
             {
-                return "Saved Failed.";
+
+                int value = gateway.Save(aDesignation);
+
+                if (value > 0)
+                {
+
+                    return "Saved successfully";
+                }
+
+                else
+                {
+                    return "Saved Failed.";
+                }
+
             }
-
-
         }
 
         public List<Designation> GetAllDesignations()
@@ -31,5 +62,7 @@ namespace EmployeeInfoDatabaseGroupStudy.BLL
 
             return gateway.GetDesignation();
         } 
+
+
     }
 }

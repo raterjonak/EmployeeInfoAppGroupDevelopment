@@ -31,13 +31,11 @@
             this.employeeGroupBox = new System.Windows.Forms.GroupBox();
             this.searchAndEditButton = new System.Windows.Forms.Button();
             this.addInfoButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.employeeGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // employeeGroupBox
             // 
-            this.employeeGroupBox.Controls.Add(this.button1);
             this.employeeGroupBox.Controls.Add(this.searchAndEditButton);
             this.employeeGroupBox.Controls.Add(this.addInfoButton);
             this.employeeGroupBox.Location = new System.Drawing.Point(50, 67);
@@ -67,15 +65,6 @@
             this.addInfoButton.UseVisualStyleBackColor = true;
             this.addInfoButton.Click += new System.EventHandler(this.addInfoButton_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(89, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // MainUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -95,7 +84,6 @@
         private System.Windows.Forms.GroupBox employeeGroupBox;
         private System.Windows.Forms.Button searchAndEditButton;
         private System.Windows.Forms.Button addInfoButton;
-        private System.Windows.Forms.Button button1;
     }
 }
 

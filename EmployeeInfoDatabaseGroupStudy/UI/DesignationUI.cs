@@ -19,17 +19,42 @@ namespace EmployeeInfoDatabaseGroupStudy
             InitializeComponent();
         }
 
-        DesignationManager designationManager=new DesignationManager();
+       private  Designation aDesignation = new Designation();
+
+
+
+       DesignationManager designationManager=new DesignationManager();
+
+       //public Designation GetLastAddedDesignation()
+       //{
+       //    return aDesignation;
+       //}
         private void saveDesignationButton_Click(object sender, EventArgs e)
         {
-            Designation aDesignation=new Designation();
+            
 
             aDesignation.Code = codeTextBox.Text;
             aDesignation.Title = titleTextBox.Text;
 
-            MessageBox.Show(designationManager.Save(aDesignation));
+            string message = designationManager.Save(aDesignation);
+
+            MessageBox.Show(message);
 
             
         }
+
+       private void GetTextBoxesClear() 
+       {
+           codeTextBox.Text = "";
+           titleTextBox.Text = "";
+       }
+
+
+
+
+       internal Designation GetLastAddedDesignationThisUI()
+       {
+           return aDesignation;
+       }
     }
 }

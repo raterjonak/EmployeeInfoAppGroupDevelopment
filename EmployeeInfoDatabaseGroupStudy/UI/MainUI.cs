@@ -25,13 +25,15 @@ namespace EmployeeInfoDatabaseGroupStudy
         private void addInfoButton_Click(object sender, EventArgs e)
         {
             EmployeeInfoUI employeeInfo = new EmployeeInfoUI();
-            employeeInfo.Show();
+          
+            employeeInfo.ShowDialog();
         }
 
         private void searchAndEditButton_Click(object sender, EventArgs e)
         {
             SearchUI searchUI = new SearchUI();
-            searchUI.Show();
+ 
+            searchUI.ShowDialog();
         }
     }
 }
