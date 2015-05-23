@@ -27,6 +27,36 @@ namespace EmployeeInfoDatabaseGroupStudy.DAL
             return rowsEffected;
         }
 
+        public List<Employee> search(string name)
+        {
+            List<Employee> employees = new List<Employee>();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT Name,Email FROM tbl_EmployeeInfo WHERE Name LIKE '"+name+"%' ORDER BY Name";
+
+            SqlCommand command = new SqlCommand(query,connection);
+
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            
+            while (reader.Read())
+            {
+                Employee anEmployee=new Employee();
+                
+                anEmployee.Name = reader["Name"].ToString();
+                anEmployee.Email = reader["Email"].ToString();
+               
+              
+                employees.Add(anEmployee);
+
+            }
+            return employees;
+        }
+
+      
     }
     
 }
