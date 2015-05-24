@@ -12,7 +12,7 @@ namespace EmployeeInfoDatabaseGroupStudy.Model
         public string Name { set; get; }
         public string Email { set; get; }
         public string Address { set; get; }
-        public Designation ADesignation { set; get; }
+        public Designation ADesignation =new Designation();
        
     }
 }

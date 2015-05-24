@@ -21,12 +21,28 @@ namespace EmployeeInfoDatabaseGroupStudy.DAL
             string query = "INSERT INTO tbl_EmployeeInfo Values('"+employee.Name+"','"+employee.Email+"','"+employee.Address+"','"+employee.ADesignation.Id+"')";
        
             SqlCommand command=new SqlCommand(query,connection);
+            connection.Open();
 
             int rowsEffected=command.ExecuteNonQuery();
+            connection.Close();
 
             return rowsEffected;
         }
 
+        public int Update(Employee employee)
+        {
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "UPDATE tbl_EmployeeInfo SET Name='"+employee.Name+"',Email='"+employee.Email+"',Address='"+employee.Address+"',DesignationId='"+employee.ADesignation.Id+"'WHERE Email='"+employee.Email+"'";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
+
+            int rowsEffected = command.ExecuteNonQuery();
+            connection.Close();
+
+            return rowsEffected;
+        }
         public List<Employee> GetAllEmloyee()
         {
             SqlConnection connection=new SqlConnection(connectionString);
@@ -37,13 +53,15 @@ namespace EmployeeInfoDatabaseGroupStudy.DAL
             SqlDataReader reader = command.ExecuteReader();
 
             List<Employee>employeeList=new List<Employee>();
+            
             while (reader.Read())
             {
                 Employee employee=new Employee();
+                employee.Id = int.Parse(reader["Id"].ToString());
                 employee.Name = reader["Name"].ToString();
                 employee.Email = reader["Email"].ToString();
                 employee.Address = reader["Address"].ToString();
-               // employee.ADesignation.Id =int.Parse( reader["DesignationId"].ToString());
+                employee.ADesignation.Id =int.Parse(reader["DesignationId"].ToString());
                 employeeList.Add(employee);
             }
             reader.Close();
@@ -70,6 +88,40 @@ namespace EmployeeInfoDatabaseGroupStudy.DAL
             }
             reader.Close();
             connection.Close();
+            return isEmailExist;
+        }
+
+
+           public List<Employee> search(string name)
+        {
+            List<Employee> employees = new List<Employee>();
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT Name,Email FROM tbl_EmployeeInfo WHERE Name LIKE '"+name+"%' ORDER BY Name";
+
+            SqlCommand command = new SqlCommand(query,connection);
+
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            
+            while (reader.Read())
+            {
+                Employee anEmployee=new Employee();
+                
+                anEmployee.Name = reader["Name"].ToString();
+                anEmployee.Email = reader["Email"].ToString();
+               
+              
+                employees.Add(anEmployee);
+
+            }
+               reader.Close();
+               connection.Close();
+            return employees;
+        
         }
     }
     

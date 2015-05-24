@@ -67,7 +67,59 @@ namespace EmployeeInfoDatabaseGroupStudy.DAL
         }
 
 
+        public bool IsDesignationCode(string code)
+        {
 
+            bool codeexists = false;
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT Code FROM tbl_Designation WHERE Code='" + code + "'";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                codeexists = true;
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return codeexists;
+
+        }
+
+
+        public bool IsDesignationTitle(string title)
+        {
+            bool titleexists = false;
+
+            SqlConnection connection = new SqlConnection(connectionString);
+
+            string query = "SELECT Title FROM tbl_Designation WHERE Title='" + title + "'";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            while (reader.Read())
+            {
+                titleexists = true;
+            }
+
+            reader.Close();
+            connection.Close();
+
+            return titleexists;
+
+        }
 
         
     }

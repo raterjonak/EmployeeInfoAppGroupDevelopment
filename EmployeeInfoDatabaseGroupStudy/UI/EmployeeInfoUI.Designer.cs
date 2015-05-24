@@ -60,7 +60,7 @@
             this.employeeGroupBox.TabIndex = 2;
             this.employeeGroupBox.TabStop = false;
             this.employeeGroupBox.Text = "Employee Information";
-            this.employeeGroupBox.Enter += new System.EventHandler(this.employeeGroupBox_Enter);
+           
             // 
             // saveEmployeeButton
             // 
@@ -70,6 +70,7 @@
             this.saveEmployeeButton.TabIndex = 5;
             this.saveEmployeeButton.Text = "Save";
             this.saveEmployeeButton.UseVisualStyleBackColor = true;
+            this.saveEmployeeButton.Click += new System.EventHandler(this.saveEmployeeButton_Click);
             // 
             // addDesignatioButton
             // 
@@ -89,7 +90,6 @@
             this.designationComboBox.Name = "designationComboBox";
             this.designationComboBox.Size = new System.Drawing.Size(170, 21);
             this.designationComboBox.TabIndex = 4;
-          //  this.designationComboBox.SelectedIndexChanged += new System.EventHandler(this.designationComboBox_SelectedIndexChanged);
             // 
             // addressTextBox
             // 

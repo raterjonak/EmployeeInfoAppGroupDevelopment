@@ -14,12 +14,14 @@ namespace EmployeeInfoDatabaseGroupStudy
 {
     public partial class SearchUI : Form
     {
+
         EmployeeManager manager=new EmployeeManager();
         public SearchUI()
         {
             InitializeComponent();
         }
 
+        private int id;
         private void SearchUI_Load(object sender, EventArgs e)
         {
             LoadAllEmployeeListView(manager.GetAllEmployees());
@@ -28,10 +30,12 @@ namespace EmployeeInfoDatabaseGroupStudy
         public void LoadAllEmployeeListView(List<Employee> employees)
         {
             int serial = 1;
+            resultListView.Items.Clear();
             foreach (var employee in employees)
             {
-                resultListView.Items.Clear();
+                
                 ListViewItem item = new ListViewItem(serial.ToString());
+                item.Tag = (Employee) employee;
                 item.SubItems.Add(employee.Name);
                 item.SubItems.Add(employee.Email);
                 resultListView.Items.Add(item);
@@ -40,5 +44,33 @@ namespace EmployeeInfoDatabaseGroupStudy
             }
             
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            List<Employee> employees = new List<Employee>();
+            string searchText = searchTextBox.Text;
+            employees = manager.Search(searchText);
+            LoadAllEmployeeListView(employees);
+        }
+
+      
+
+        private void resultListView_DoubleClick(object sender, EventArgs e)
+        {
+            Employee selectedEmployee = GetSelectedEmployee();
+
+            EmployeeInfoUI employeeInfoUi=new EmployeeInfoUI();
+            employeeInfoUi.GetSelectedEmployee(selectedEmployee);
+            employeeInfoUi.Show();
+
+        }
+
+        public Employee GetSelectedEmployee()
+        {
+            int index = resultListView.SelectedIndices[0];
+            ListViewItem item = resultListView.Items[index];
+            return (Employee) item.Tag;
+        }
+       
     }
 }

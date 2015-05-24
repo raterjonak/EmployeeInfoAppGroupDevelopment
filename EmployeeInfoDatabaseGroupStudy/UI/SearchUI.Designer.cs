@@ -65,6 +65,7 @@
             this.resultListView.TabIndex = 0;
             this.resultListView.UseCompatibleStateImageBehavior = false;
             this.resultListView.View = System.Windows.Forms.View.Details;
+            this.resultListView.DoubleClick += new System.EventHandler(this.resultListView_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -103,6 +104,7 @@
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // searchTextBox
             // 

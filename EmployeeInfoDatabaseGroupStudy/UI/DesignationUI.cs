@@ -20,16 +20,30 @@ namespace EmployeeInfoDatabaseGroupStudy
         }
 
         DesignationManager designationManager=new DesignationManager();
+        Designation aDesignation = new Designation();
         private void saveDesignationButton_Click(object sender, EventArgs e)
         {
-            Designation aDesignation=new Designation();
+            
 
             aDesignation.Code = codeTextBox.Text;
             aDesignation.Title = titleTextBox.Text;
 
             MessageBox.Show(designationManager.Save(aDesignation));
-
+            this.Close();
             
+        }
+        private void GetTextBoxesClear()
+        {
+            codeTextBox.Text = "";
+            titleTextBox.Text = "";
+        }
+
+
+
+
+        internal Designation GetLastAddedDesignationThisUI()
+        {
+            return aDesignation;
         }
     }
 }
